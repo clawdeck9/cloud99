@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: custserv
+          uri: http://localhost:8081
+          predicates:
+            - Path=/customers/**
+        - id: prodserv
+          uri: http://localhost:8082
+          predicates:
+            - Path=/products/**
+server:
+  port: 8888
